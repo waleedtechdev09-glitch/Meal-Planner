@@ -35,7 +35,7 @@ export default function Hero() {
       {/* Right Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#FFE8DD_0%,transparent_35%)]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 pt-10 md:pt-20 pb-10 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-10 pt-10 md:pt-14 pb-10 md:pb-0 lg:px-8">
         {/* Heading */}
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold leading-tight text-[#1E1E1E] md:text-5xl lg:text-6xl">
