@@ -21,6 +21,12 @@ const stats = [
 export default function Hero() {
   return (
     <section id="features" className="relative overflow-hidden bg-[#FFF8F5]">
+      {/* Left Gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)]" />
+
+      {/* Right Gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#FFE8DD_0%,transparent_35%)]" />
+
       {/* Background */}
       <div
         className="absolute inset-0 bg-contain bg-top xl:mt-35 lg:mt-35 bg-no-repeat opacity-90 hidden lg:block"
@@ -28,12 +34,6 @@ export default function Hero() {
           backgroundImage: "url('/assets/lines-bg.png')",
         }}
       />
-
-      {/* Left Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)]" />
-
-      {/* Right Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#FFE8DD_0%,transparent_35%)]" />
 
       <div className="relative mx-auto max-w-7xl px-10 pt-10 md:pt-14 pb-10 md:pb-0 lg:px-8">
         {/* Heading */}
@@ -74,21 +74,21 @@ export default function Hero() {
           </div>
 
           {/* Download Buttons */}
-          <div className="mt-8 flex  flex-row flex-nowrap items-center justify-center gap-3 w-full">
+          <div className="mt-8 flex flex-col gap-3 w-full md:flex-row md:flex-nowrap md:items-center md:justify-center md:gap-3">
             {/* Google Play */}
             <Link
               href="#"
               className="flex items-center justify-center gap-3
-      w-[160px]
-      h-[50px]
+      w-full h-auto min-h-[50px]
       rounded-lg
       border-2 border-gray-400
       bg-black
-      px-3
+      px-4 py-3
       transition-all duration-200
       hover:bg-neutral-900
       hover:scale-[1.10]
-      overflow-hidden"
+      overflow-hidden
+      md:w-[160px] md:h-[50px] md:px-3 md:py-0"
             >
               <div className="relative h-6 w-6 shrink-0">
                 <Image
@@ -100,11 +100,11 @@ export default function Hero() {
               </div>
 
               <div className="flex flex-col items-start leading-none">
-                <span className="text-[8px] uppercase tracking-wider font-medium text-white">
+                <span className="text-[10px] uppercase tracking-wider font-medium text-white md:text-[8px]">
                   Get it on
                 </span>
 
-                <span className="mt-[2px] text-[15px] font-medium text-white">
+                <span className="mt-[2px] text-base font-medium text-white md:text-[15px]">
                   Google Play
                 </span>
               </div>
@@ -114,16 +114,16 @@ export default function Hero() {
             <Link
               href="#"
               className="flex items-center justify-center gap-3
-       w-[160px]
-       h-[50px]
-       rounded-lg
-       border-2 border-gray-400
-       bg-black
-       px-3
-       transition-all duration-200
-       hover:bg-neutral-900
-       hover:scale-[1.10]
-       overflow-hidden"
+      w-full h-auto min-h-[50px]
+      rounded-lg
+      border-2 border-gray-400
+      bg-black
+      px-4 py-3
+      transition-all duration-200
+      hover:bg-neutral-900
+      hover:scale-[1.10]
+      overflow-hidden
+      md:w-[160px] md:h-[50px] md:px-3 md:py-0"
             >
               <div className="relative h-6 w-6 shrink-0">
                 <Image
@@ -135,11 +135,11 @@ export default function Hero() {
               </div>
 
               <div className="flex flex-col items-start leading-none">
-                <span className="text-[8px] tracking-wide font-medium text-white">
+                <span className="text-[10px] tracking-wide font-medium text-white md:text-[8px]">
                   Download on the
                 </span>
 
-                <span className="mt-[2px] text-[15px] font-medium text-white">
+                <span className="mt-[2px] text-base font-medium text-white md:text-[15px]">
                   App Store
                 </span>
               </div>
