@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#FFF8F5] backdrop-blur relative overflow-hidden">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#FFF8F5] backdrop-blur relative">
       {/* Left Gradient matching hero */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)] hidden md:block" />
 
@@ -68,11 +68,11 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        className={`md:hidden absolute top-full left-0 right-0 transition-all duration-500 ease-out ${
+          isOpen ? "max-h-[500px] translate-y-0 opacity-100" : "max-h-0 -translate-y-4 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col gap-4 px-6 py-4 border-t border-gray-200 bg-[#FFF8F5]">
+        <div className="flex flex-col gap-5 px-6 py-5 border-t border-gray-200 bg-[#FFF8F5] shadow-lg">
           {navigation.map((item) => (
             <Link
               key={item.id}
@@ -93,7 +93,7 @@ const Navbar = () => {
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-             className="inline-flex items-center gap-2 rounded-full bg-[#1E1E1E] px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-black w-full"
+             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1E1E1E] px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-black w-full"
           >
             Contact us
             <ArrowRight size={16} />
