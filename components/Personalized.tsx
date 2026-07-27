@@ -43,22 +43,22 @@ const Personalized = () => {
         }}
       />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-16 px-6 lg:flex-row lg:gap-20 lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-16 px-6 lg:flex-row lg:gap-20 xl:gap-4 lg:px-8">
         {/* LEFT */}
         <div className="relative flex w-full justify-center lg:w-1/2">
           {/* Circle (Bottom) */}
-          <div className="absolute left-[-60px]  -top-17 z-0 md:left-[-80px] xl:left-[-280px]">
+          <div className="absolute left-[-60px]  top-3 z-0 md:left-[-80px] xl:left-[-280px]">
             <Image
               src="/assets/circle.png"
               alt=""
-              width={360}
-              height={360}
-              className="w-56 md:w-72 lg:w-80 "
+              width={450}
+              height={450}
+              className="w-56 md:w-72 lg:w-100 "
             />
           </div>
 
           {/* Phone (Top) */}
-          <div className="relative z-20 xl:left-[-170px] xl:-top-20 xl:mt-8">
+          <div className="relative z-20 xl:left-[-140px] xl:-top-6 xl:mt-8">
             <Image
               src="/assets/personalized.png"
               alt="Meal Planner"
@@ -72,23 +72,28 @@ const Personalized = () => {
 
         {/* RIGHT */}
         <div className="w-full lg:w-1/2">
-          <h2 className="text-3xl font-bold leading-tight text-[#1E1E1E] md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold  leading-tight text-[#1E1E1E] md:text-4xl lg:text-5xl xl:text-4xl">
             <span className="text-[#FF6B35]">Personalized Meals,</span> Crafted
             Just for You
           </h2>
 
-          <p className="mt-5 text-base leading-7 text-[#7A7A7A] md:text-lg">
+          <p className="mt-2 text-base leading-7 text-[#818181] font-normal md:text-lg">
             Get meal recommendations tailored to your health goals, dietary
             preferences, and lifestyle. From breakfast to dinner, AI creates
             balanced meal plans designed to keep you on track.
           </p>
 
           {/* Features */}
-          <div className="mt-10 space-y-6">
+          <div className="mt-4 space-y-2">
             {features.map((item) => (
-              <div key={item.title} className="flex items-start gap-4">
+              <div key={item.title} className="flex items-start gap-2">
                 <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full">
-                  <Check size={18} className="text-[#FF6B35]" strokeWidth={3} />
+                  <Image
+                    src="/assets/tick.png"
+                    alt="Check"
+                    width={17}
+                    height={17}
+                  />
                 </div>
 
                 <div>
@@ -96,7 +101,7 @@ const Personalized = () => {
                     {item.title}
                   </h3>
 
-                  <p className="mt-1 text-[15px] leading-6 text-[#7A7A7A]">
+                  <p className="mt-1 text-[14px] font-normal leading-6 text-[#818181]">
                     {item.description}
                   </p>
                 </div>
