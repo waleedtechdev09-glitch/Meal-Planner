@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Check } from "lucide-react";
 
 const features = [
   {
@@ -36,18 +35,18 @@ const Personalized = () => {
     <section className="relative bg-[#FFF8F5] md:py-16 lg:py-16 xl:py-16">
       {/* Background Lines */}
       <div
-        className="xl:left-[-1280px] lg:left-[-800px] md:left-[-575px] absolute left-0 right-0 -top-32 z-10 opacity-90 bg-no-repeat bg-top bg-center hidden md:block"
+        className="pointer-events-none xl:left-[-1280px] lg:left-[-800px] md:left-[-575px] absolute left-0 right-0 -top-32 z-10 opacity-90 bg-no-repeat bg-top bg-center hidden md:block"
         style={{
           backgroundImage: "url('/assets/vertical-lines.png')",
           minHeight: "calc(100% + 8rem)",
         }}
       />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 md:flex-row md:gap-16 lg:flex-row lg:gap-20 xl:gap-2 lg:px-8">
+      <div className="relative z-20 mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 md:flex-row md:gap-16 lg:flex-row lg:gap-20 xl:gap-2 lg:px-8">
         {/* LEFT */}
         <div className="relative flex w-full justify-center md:w-5/12 lg:w-1/2">
           {/* Circle (Bottom) */}
-          <div className="hidden md:block absolute left-[-30px] md:left-[-160px] md:-top-[190px] lg:-top-[60px] xl:-top-[0px] top-3 z-0 lg:left-[-200px] xl:left-[-280px]">
+          <div className="pointer-events-none hidden md:block absolute left-[-30px] md:left-[-160px] md:-top-[190px] lg:-top-[60px] xl:-top-[0px] top-3 z-0 lg:left-[-200px] xl:left-[-280px]">
             <Image
               src="/assets/circle.png"
               alt=""
@@ -58,7 +57,7 @@ const Personalized = () => {
           </div>
 
           {/* Phone (Top) */}
-          <div className="relative z-20 hidden md:block md:left-[-20px] md:-top-[190px] lg:-top-[60px] xl:left-[-120px] xl:-top-6 xl:mt-8">
+          <div className="pointer-events-none relative z-20 hidden md:block md:left-[-20px] md:-top-[190px] lg:-top-[60px] xl:left-[-120px] xl:-top-6 xl:mt-8">
             <Image
               src="/assets/personalized.png"
               alt="Meal Planner"
@@ -109,24 +108,13 @@ const Personalized = () => {
             ))}
           </div>
 
-          {/* Store Buttons */}
-          <div className="mt-8 flex flex-col gap-3 w-full md:flex-row md:flex-nowrap md:items-center md:justify-center md:gap-3">
+          <div className="relative z-10 flex flex-col items-center gap-3 sm:flex-row mt-4">
             {/* Google Play */}
             <Link
               href="#"
-              className="flex items-center justify-center gap-3
-      w-full h-auto min-h-[50px]
-      rounded-lg
-      border-2 border-gray-400
-      bg-black
-      px-4 py-3
-      transition-all duration-200
-      hover:bg-neutral-900
-      hover:scale-[1.10]
-      overflow-hidden
-      md:w-[160px] md:h-[50px] md:px-3 md:py-0"
+              className="relative z-10 flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
             >
-              <div className="relative h-6 w-6 shrink-0">
+              <div className="relative h-6 w-6 shrink-0 pointer-events-none">
                 <Image
                   src="/assets/meal-playstore.png"
                   alt="Google Play"
@@ -135,12 +123,11 @@ const Personalized = () => {
                 />
               </div>
 
-              <div className="flex flex-col items-start leading-none">
-                <span className="text-[10px] uppercase tracking-wider font-medium text-white md:text-[8px]">
+              <div className="flex flex-col items-start leading-none pointer-events-none">
+                <span className="text-[10px] uppercase tracking-wider font-medium text-white sm:text-[8px]">
                   Get it on
                 </span>
-
-                <span className="mt-[2px] text-base font-medium text-white md:text-[15px]">
+                <span className="mt-[2px] text-base font-medium text-white sm:text-[15px]">
                   Google Play
                 </span>
               </div>
@@ -149,19 +136,9 @@ const Personalized = () => {
             {/* App Store */}
             <Link
               href="#"
-              className="flex items-center justify-center gap-3
-      w-full h-auto min-h-[50px]
-      rounded-lg
-      border-2 border-gray-400
-      bg-black
-      px-4 py-3
-      transition-all duration-200
-      hover:bg-neutral-900
-      hover:scale-[1.10]
-      overflow-hidden
-      md:w-[160px] md:h-[50px] md:px-3 md:py-0"
+              className="relative z-10 flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
             >
-              <div className="relative h-6 w-6 shrink-0">
+              <div className="relative h-6 w-6 shrink-0 pointer-events-none">
                 <Image
                   src="/assets/meal-applestore.png"
                   alt="App Store"
@@ -170,12 +147,11 @@ const Personalized = () => {
                 />
               </div>
 
-              <div className="flex flex-col items-start leading-none">
-                <span className="text-[10px] tracking-wide font-medium text-white md:text-[8px]">
+              <div className="flex flex-col items-start leading-none pointer-events-none">
+                <span className="text-[10px] tracking-wide font-medium text-white sm:text-[8px]">
                   Download on the
                 </span>
-
-                <span className="mt-[2px] text-base font-medium text-white md:text-[15px]">
+                <span className="mt-[2px] text-base font-medium text-white sm:text-[15px]">
                   App Store
                 </span>
               </div>

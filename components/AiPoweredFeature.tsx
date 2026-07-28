@@ -4,7 +4,10 @@ import Image from "next/image";
 
 const AiPoweredFeature = () => {
   return (
-    <section id="features" className="relative overflow-hidden bg-[#FFF8F5] py-16 md:py-6 lg:py-6 xl:py-6">
+    <section
+      id="features"
+      className="relative overflow-hidden bg-[#FFF8F5] py-16 md:py-6 lg:py-6 xl:py-6"
+    >
       {/* Left Background Pattern */}
 
       {/* Right Gradient */}
@@ -12,7 +15,7 @@ const AiPoweredFeature = () => {
 
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Heading */}
-        <div className="mb-12 text-center md:mb-16">
+        <div className="mb-6 text-center md:mb-16">
           <h2 className="text-4xl font-bold lg:text-4xl xl:text-4xl">
             <span className="text-[#FF6B35]">AI-Powered</span>{" "}
             <span className="text-[#222]">Features</span>

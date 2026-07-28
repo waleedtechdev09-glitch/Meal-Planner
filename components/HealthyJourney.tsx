@@ -25,7 +25,7 @@ const HealthyJourney = () => {
           <div className="flex flex-col items-center gap-3 sm:flex-row">
             <a
               href="#"
-              className="flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-all duration-200 hover:bg-neutral-900 hover:scale-[1.10] overflow-hidden sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
+              className="flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-all duration-200 hover:bg-neutral-900 hover:scale-[1.10] overflow-hidden transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
             >
               <div className="relative h-6 w-6 shrink-0">
                 <Image
@@ -48,7 +48,7 @@ const HealthyJourney = () => {
 
             <a
               href="#"
-              className="flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-all duration-200 hover:bg-neutral-900 hover:scale-[1.10] overflow-hidden sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
+              className="flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-all duration-200 hover:bg-neutral-900 hover:scale-[1.10] overflow-hidden transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
             >
               <div className="relative h-6 w-6 shrink-0">
                 <Image

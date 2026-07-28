@@ -23,20 +23,20 @@ export default function Hero() {
   return (
     <section id="features" className="relative overflow-hidden bg-[#FFF8F5]">
       {/* Left Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)]" />
 
       {/* Right Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#FFE8DD_0%,transparent_35%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#FFE8DD_0%,transparent_35%)]" />
 
       {/* Background */}
       <div
-        className="absolute inset-0 bg-contain bg-top xl:mt-35 lg:mt-35 bg-no-repeat opacity-90 hidden lg:block"
+        className="pointer-events-none absolute inset-0 bg-contain bg-top xl:mt-35 lg:mt-35 bg-no-repeat opacity-90 hidden lg:block"
         style={{
           backgroundImage: "url('/assets/lines-bg.png')",
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-10 pt-10 md:pt-14 pb-10 md:pb-0 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-10 pt-10 md:pt-14 pb-10 md:pb-0 lg:px-8">
         {/* Heading */}
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold leading-tight text-[#1E1E1E] md:text-5xl lg:text-6xl">
@@ -75,13 +75,13 @@ export default function Hero() {
           </div>
 
           {/* Download Buttons */}
-          <div className="mt-8 flex flex-col gap-3 w-full md:flex-row md:flex-nowrap md:items-center md:justify-center md:gap-3">
+          <div className="relative z-10 mt-8 flex flex-col gap-3 w-full md:flex-row md:flex-nowrap md:items-center md:justify-center md:gap-3">
             {/* Google Play */}
             <Link
               href="#"
-              className="flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-all duration-200 hover:bg-neutral-900 hover:scale-[1.10] overflow-hidden sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
+              className="relative z-10 flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
             >
-              <div className="relative h-6 w-6 shrink-0">
+              <div className="relative h-6 w-6 shrink-0 pointer-events-none">
                 <Image
                   src="/assets/meal-playstore.png"
                   alt="Google Play"
@@ -90,7 +90,7 @@ export default function Hero() {
                 />
               </div>
 
-              <div className="flex flex-col items-start leading-none">
+              <div className="flex flex-col items-start leading-none pointer-events-none">
                 <span className="text-[10px] uppercase tracking-wider font-medium text-white sm:text-[8px]">
                   Get it on
                 </span>
@@ -104,9 +104,9 @@ export default function Hero() {
             {/* App Store */}
             <Link
               href="#"
-              className="flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-all duration-200 hover:bg-neutral-900 hover:scale-[1.10] overflow-hidden sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
+              className="relative z-10 flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
             >
-              <div className="relative h-6 w-6 shrink-0">
+              <div className="relative h-6 w-6 shrink-0 pointer-events-none">
                 <Image
                   src="/assets/meal-applestore.png"
                   alt="App Store"
@@ -115,7 +115,7 @@ export default function Hero() {
                 />
               </div>
 
-              <div className="flex flex-col items-start leading-none">
+              <div className="flex flex-col items-start leading-none pointer-events-none">
                 <span className="text-[10px] tracking-wide font-medium text-white sm:text-[8px]">
                   Download on the
                 </span>
