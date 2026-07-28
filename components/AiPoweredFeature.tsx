@@ -1,6 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const AiPoweredFeature = () => {
   return (
@@ -24,7 +30,14 @@ const AiPoweredFeature = () => {
 
         <div className="relative flex items-center justify-center">
           {/* Center Image */}
-          <div className="hidden md:block xl:-mt-[70px] lg:-mt-[70px] md:-mt-[70px]">
+          <motion.div
+            className="hidden md:block xl:-mt-[70px] lg:-mt-[70px] md:-mt-[70px]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            variants={fadeInUp}
+          >
             <Image
               src="/assets/feature.png"
               alt="Feature"
@@ -32,7 +45,7 @@ const AiPoweredFeature = () => {
               height={1800}
               className="object-contain lg:w-[550px] xl:w-full md:w-[600px]"
             />
-          </div>
+          </motion.div>
 
           {/* LEFT TOP */}
           <div className="absolute md:-left-35 md:top-10 lg:-left-1 lg:top-6 xl:left-0 xl:top-25 hidden w-[320px] text-right md:block">

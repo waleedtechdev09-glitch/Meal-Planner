@@ -43,7 +43,7 @@ const FAQs = () => {
   };
 
   return (
-    <section id="faqs" className="bg-white px-4 py-4 md:py-3 lg:py-4 xl:py-6">
+    <section id="faqs" className="bg-white px-4 py-4 md:py-3 lg:py-4 xl:py-2">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
           <span className="text-gray-900">Frequently Asked </span>
@@ -66,7 +66,7 @@ const FAQs = () => {
                     isOpen ? "rounded-xl" : "rounded-xl"
                   }`}
                 >
-                  <span className="text-sm font-medium text-gray-900 sm:text-base">
+                  <span className="text-sm font-medium text-[#626262] sm:text-base">
                     {faq.question}
                   </span>
                   <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center text-lg font-normal text-gray-700">
