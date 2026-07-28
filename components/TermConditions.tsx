@@ -244,11 +244,11 @@ export default function TermConditions() {
               <section
                 key={section.id}
                 id={section.id}
-                className={`scroll-mt-24 sm:scroll-mt-28 pb-6 sm:pb-10 ${
-                  section.id !== "contact"
-                    ? "border-b border-gray-200 mb-6 sm:mb-10"
-                    : ""
-                }`}
+                 className={`scroll-mt-24 sm:scroll-mt-28 pb-6 sm:pb-10 ${
+                   section.id !== "contact"
+                     ? "border-b-0 md:border-b border-gray-200 mb-6 sm:mb-10"
+                     : ""
+                 }`}
               >
                 <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
                   {section.title}

@@ -42,7 +42,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="relative bg-white border-t border-gray-100 px-4 py-10 sm:py-12 overflow-x-hidden">
+    <footer className="relative bg-white border-t-0 md:border-t border-gray-100 px-4 py-10 sm:py-12 overflow-x-hidden">
       <div className="pointer-events-none absolute hidden md:block md:-top-30 md:-left-34 lg:-top-30 lg:-left-30 xl:-top-42 xl:-left-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,#FFD3C5_0%,transparent_50%)] opacity-80 sm:h-96 sm:w-96" />
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-8">
         <div className="flex items-center gap-2">

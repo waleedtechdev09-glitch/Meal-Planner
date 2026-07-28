@@ -77,7 +77,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#FFF8F5] backdrop-blur relative">
+    <header className="sticky top-0 z-50 w-full border-b-0 md:border-b border-gray-200 bg-[#FFF8F5] backdrop-blur relative">
       {/* Left Gradient matching hero */}
       {!scrolled && !["/contact-us", "/privacy-policy", "/term-conditions"].includes(pathname) && (
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)] hidden md:block" />
@@ -141,7 +141,7 @@ const Navbar = () => {
             : "max-h-0 -translate-y-4 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col gap-5 px-6 py-5 border-t border-gray-200 bg-[#FFF8F5] shadow-lg">
+        <div className="flex flex-col gap-5 px-6 py-5 border-t-0 md:border-t border-gray-200 bg-[#FFF8F5] shadow-lg">
           {navigation.map((item) => (
             <Link
               key={item.id}
