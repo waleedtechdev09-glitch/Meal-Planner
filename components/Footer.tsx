@@ -6,8 +6,8 @@ const navLinks = [
   { label: "Pricing", href: "#pricing" },
   { label: "Reviews", href: "#reviews" },
   { label: "FAQs", href: "#faqs" },
-  { label: "Privacy Policy", href: "#privacy-policy", underline: true },
-  { label: "Term & Condition", href: "#terms", underline: true },
+  { label: "Privacy Policy", href: "/privacy-policy", underline: true },
+  { label: "Term & Condition", href: "/term-conditions", underline: true },
 ];
 
 const socialLinks = [
@@ -42,9 +42,11 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="relative bg-white border-t-0 md:border-t border-gray-100 px-4 py-10 sm:py-12 overflow-x-hidden">
-      <div className="pointer-events-none absolute hidden md:block md:-top-30 md:-left-34 lg:-top-30 lg:-left-30 xl:-top-42 xl:-left-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,#FFD3C5_0%,transparent_50%)] opacity-80 sm:h-96 sm:w-96" />
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-8">
+    <footer className="relative bg-white border-t-0 md:border-t border-gray-100 px-4 py-10 sm:py-12 overflow-hidden">
+      {/* Gradient circle - positioned to extend above the footer */}
+      <div className="pointer-events-none absolute -top-48  left-1/7 -translate-x-1/2 h-[500px] w-[500px] max-w-[90vw] rounded-full bg-[radial-gradient(circle,#FFD3C5_0%,transparent_50%)] opacity-80 sm:-top-64 sm:h-[600px] sm:w-[600px] lg:-top-80 lg:h-[700px] lg:w-[700px]" />
+
+      <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 relative z-10">
         <div className="flex items-center gap-2">
           <Image
             src="/assets/meal-logo.png"
