@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -30,23 +31,40 @@ const features = [
   },
 ];
 
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { opacity: 1, x: 0 },
+};
+
 const Personalized = () => {
   return (
     <section className="relative bg-[#FFF8F5] md:py-16 lg:py-16 xl:py-16">
-      {/* Background Lines */}
-      <div
+      {/* Background Lines - above circle, below phone */}
+      <motion.div
         className="pointer-events-none xl:left-[-1280px] lg:left-[-800px] md:left-[-575px] absolute left-0 right-0 -top-32 z-10 opacity-90 bg-no-repeat bg-top bg-center hidden md:block"
         style={{
           backgroundImage: "url('/assets/vertical-lines.png')",
           minHeight: "calc(100% + 8rem)",
         }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1 }}
+        // variants={fadeIn}
       />
 
-      <div className="relative z-20 mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 md:flex-row md:gap-16 lg:flex-row lg:gap-20 xl:gap-2 lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 md:flex-row md:gap-16 lg:flex-row lg:gap-20 xl:gap-2 lg:px-8">
         {/* LEFT */}
         <div className="relative flex w-full justify-center md:w-5/12 lg:w-1/2">
-          {/* Circle (Bottom) */}
-          <div className="pointer-events-none hidden md:block absolute left-[-30px] md:left-[-160px] md:-top-[190px] lg:-top-[60px] xl:-top-[0px] top-3 z-0 lg:left-[-200px] xl:left-[-280px]">
+          {/* Circle (bottom-most) */}
+          <motion.div
+            className="pointer-events-none hidden md:block absolute left-[-30px] md:left-[-160px] md:-top-[190px] lg:-top-[60px] xl:-top-[0px] top-3 z-0 lg:left-[-200px] xl:left-[-280px]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            // variants={fadeIn}
+          >
             <Image
               src="/assets/circle.png"
               alt=""
@@ -54,10 +72,26 @@ const Personalized = () => {
               height={450}
               className="w-44 md:w-76 lg:w-100 "
             />
-          </div>
+          </motion.div>
 
-          {/* Phone (Top) */}
-          <div className="pointer-events-none relative z-20 hidden md:block md:left-[-20px] md:-top-[190px] lg:-top-[60px] xl:left-[-120px] xl:-top-6 xl:mt-8">
+          {/* Phone (Top, above lines, fade on left) */}
+          <motion.div
+            className="pointer-events-none relative z-20 hidden md:block md:left-[-20px] md:-top-[190px] lg:-top-[60px] xl:left-[-120px] xl:-top-6 xl:mt-8"
+            style={{
+              maskImage: "linear-gradient(to right, transparent 0%, black 25%)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent 0%, black 25%)",
+              maskSize: "100% 100%",
+              WebkitMaskSize: "100% 100%",
+              maskRepeat: "no-repeat",
+              WebkitMaskRepeat: "no-repeat",
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            variants={fadeInLeft}
+          >
             <Image
               src="/assets/personalized.png"
               alt="Meal Planner"
@@ -66,7 +100,7 @@ const Personalized = () => {
               priority
               className="w-[220px] sm:w-[280px] md:w-[320px] lg:w-[430px] object-contain"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* RIGHT */}
