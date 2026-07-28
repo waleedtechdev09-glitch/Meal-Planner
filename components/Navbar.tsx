@@ -23,6 +23,12 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    if (pathname === "/contact-us") {
+      setActive("");
+    }
+  }, [pathname]);
+
+  useEffect(() => {
     if (pathname !== "/") return;
 
     const sections = navigation
@@ -33,7 +39,7 @@ const Navbar = () => {
       }));
 
     const labelMap = new Map(
-      sections.map((section) => [section.id, section.label])
+      sections.map((section) => [section.id, section.label]),
     );
 
     const observer = new IntersectionObserver(
@@ -45,7 +51,7 @@ const Navbar = () => {
           }
         });
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
     );
 
     sections.forEach((section) => {
@@ -56,7 +62,10 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, [pathname]);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     if (href.startsWith("#")) {
       e.preventDefault();
       const id = href.replace("#", "");
@@ -127,7 +136,9 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={`md:hidden absolute top-full left-0 right-0 transition-all duration-500 ease-out ${
-          isOpen ? "max-h-[500px] translate-y-0 opacity-100" : "max-h-0 -translate-y-4 opacity-0 pointer-events-none"
+          isOpen
+            ? "max-h-[500px] translate-y-0 opacity-100"
+            : "max-h-0 -translate-y-4 opacity-0 pointer-events-none"
         }`}
       >
         <div className="flex flex-col gap-5 px-6 py-5 border-t border-gray-200 bg-[#FFF8F5] shadow-lg">
@@ -152,7 +163,7 @@ const Navbar = () => {
           <Link
             href="/contact-us"
             onClick={() => setIsOpen(false)}
-             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1E1E1E] px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-black w-full"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1E1E1E] px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-black w-full"
           >
             Contact us
             <ArrowRight size={16} />

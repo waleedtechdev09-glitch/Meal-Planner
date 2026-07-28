@@ -5,7 +5,6 @@ const navLinks = [
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
   { label: "FAQs", href: "#faqs" },
   { label: "Privacy Policy", href: "#privacy-policy", underline: true },
   { label: "Term & Condition", href: "#terms", underline: true },
