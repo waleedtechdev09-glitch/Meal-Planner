@@ -31,7 +31,7 @@ const Pricing = () => {
   const [yearly, setYearly] = useState(true);
 
   return (
-    <section className="relative overflow-hidden bg-[#1E1E1E] py-20">
+    <section id="pricing" className="relative overflow-hidden bg-[#1E1E1E] py-20">
       {/* Background Image */}
       <div
         className="absolute hidden inset-0 opacity-20 md:block"

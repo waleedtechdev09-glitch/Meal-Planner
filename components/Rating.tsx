@@ -82,7 +82,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 
 const Testimonials = () => {
   return (
-    <section className="bg-white px-4 py-14 sm:py-20">
+    <section id="reviews" className="bg-white px-4 py-14 sm:py-20">
       <div className="mx-auto max-w-6xl text-center">
         <h2 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
           <span className="text-orange-500">Loved by People</span>{" "}

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const AiPoweredFeature = () => {
   return (
-    <section className="relative overflow-hidden bg-[#FFF8F5] py-16 md:py-6 lg:py-6 xl:py-6">
+    <section id="features" className="relative overflow-hidden bg-[#FFF8F5] py-16 md:py-6 lg:py-6 xl:py-6">
       {/* Left Background Pattern */}
 
       {/* Right Gradient */}

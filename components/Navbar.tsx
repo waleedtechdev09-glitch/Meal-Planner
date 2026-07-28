@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 import { navigation } from "@/constants/navigation";
 import Image from "next/image";
@@ -10,11 +11,68 @@ import Image from "next/image";
 const Navbar = () => {
   const [active, setActive] = useState(navigation[0].label);
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const sections = navigation
+      .filter((item) => item.href.startsWith("#"))
+      .map((item) => ({
+        id: item.href.replace("#", ""),
+        label: item.label,
+      }));
+
+    const labelMap = new Map(
+      sections.map((section) => [section.id, section.label])
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const label = labelMap.get(entry.target.id);
+            if (label) setActive(label);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => {
+      const el = document.getElementById(section.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const id = href.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#FFF8F5] backdrop-blur relative">
       {/* Left Gradient matching hero */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)] hidden md:block" />
+      {!scrolled && pathname !== "/contact-us" && (
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)] hidden md:block" />
+      )}
 
       <div className="relative mx-auto flex h-16 max-w-full items-center justify-between px-6 lg:px-14 xl:px-18">
         {/* Logo */}
@@ -44,7 +102,7 @@ const Navbar = () => {
             <Link
               key={item.id}
               href={item.href}
-              onClick={() => setActive(item.label)}
+              onClick={(e) => handleClick(e, item.href)}
               className={`text-sm font-normal transition-colors duration-200 ${
                 active === item.label
                   ? "text-[#FF6A3D] font-medium"
@@ -58,7 +116,7 @@ const Navbar = () => {
 
         {/* Desktop Contact Button */}
         <Link
-          href="/contact"
+          href="/contact-us"
           className="hidden md:inline-flex items-center gap-2 rounded-full bg-[#1E1E1E] px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-black"
         >
           Contact us
@@ -77,7 +135,8 @@ const Navbar = () => {
             <Link
               key={item.id}
               href={item.href}
-              onClick={() => {
+              onClick={(e) => {
+                handleClick(e, item.href);
                 setActive(item.label);
                 setIsOpen(false);
               }}
@@ -91,7 +150,7 @@ const Navbar = () => {
             </Link>
           ))}
           <Link
-            href="/contact"
+            href="/contact-us"
             onClick={() => setIsOpen(false)}
              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1E1E1E] px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-black w-full"
           >
