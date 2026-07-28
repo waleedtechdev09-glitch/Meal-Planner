@@ -29,7 +29,8 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="bg-white px-4 py-6 sm:px-6 sm:py-12">
+    <section className="relative bg-white px-4 py-6 sm:px-6 sm:py-12 overflow-x-hidden">
+      <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,#FFE8DD_0%,transparent_70%)] opacity-80 sm:h-96 sm:w-96 pointer-events-none" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2">
         <div>
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
