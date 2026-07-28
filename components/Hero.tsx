@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const stats = [
   {
@@ -148,7 +149,12 @@ export default function Hero() {
         </div>
 
         {/* Hero Image */}
-        <div className="lg:-mt-17 xl:-mt-17 md:-mt-10 hidden md:flex justify-center ">
+        <motion.div
+          className="lg:-mt-17 xl:-mt-17 md:-mt-10 hidden md:flex justify-center "
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <Image
             src="/assets/hero.png"
             alt="Meal Planner App"
@@ -157,7 +163,7 @@ export default function Hero() {
             priority
             className="w-full max-w-4xl object-contain"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
