@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const AiPoweredFeature = () => {
   return (
-    <section className="relative overflow-hidden bg-[#FFF8F5] xl:py-6">
+    <section className="relative overflow-hidden bg-[#FFF8F5] py-16 lg:py-6 xl:py-6">
       {/* Left Background Pattern */}
 
       {/* Right Gradient */}
@@ -27,17 +27,17 @@ const AiPoweredFeature = () => {
               alt="Feature"
               width={800}
               height={1800}
-              className="object-contain"
+              className="object-contain lg:w-[550px] xl:w-full"
             />
           </div>
 
           {/* LEFT TOP */}
-          <div className="absolute lg:-left-20 lg:top-20 xl:left-10 xl:top-15 hidden w-[320px] text-right lg:block">
-            <h3 className="text-2xl lg:text-sm lg:font-semibold xl:text-lg xl:font-semibold font-medium text-[#1E1E1E]">
+          <div className="absolute lg:-left-1 lg:top-6 xl:left-0 xl:top-25 hidden w-[320px] text-right lg:block">
+            <h3 className="text-xl lg:text-lg lg:font-semibold xl:text-xl xl:font-semibold font-semibold text-[#1E1E1E]">
               AI Smart Meal Search
             </h3>
 
-            <p className="mt-1 text-lg lg:text-xs xl:text-base xl:font-normal xl:leading-6 text-[#818181]">
+            <p className=" text-sm lg:text-sm lg:font-normal lg:leading-6 xl:text-base xl:font-normal xl:leading-6 text-[#818181]">
               Describe the meal you want in natural language, and AI instantly
               recommends recipes that match your dietary preferences and
               lifestyle.
@@ -45,12 +45,12 @@ const AiPoweredFeature = () => {
           </div>
 
           {/* LEFT BOTTOM */}
-          <div className="absolute xl:bottom-25 xl:left-22 hidden w-[320px] text-right lg:block">
-            <h3 className="text-2xl xl:text-lg xl:font-semibold font-medium text-[#1E1E1E]">
+          <div className="absolute lg:left-10 lg:bottom-15 xl:left-17 xl:bottom-30 hidden w-[320px] text-right lg:block">
+            <h3 className="text-xl lg:text-lg lg:font-semibold xl:text-xl xl:font-semibold font-semibold text-[#1E1E1E]">
               AI Healthy Tips
             </h3>
 
-            <p className="mt-1 text-lg xl:text-base xl:font-normal xl:leading-6 text-[#818181]">
+            <p className=" text-sm lg:text-sm lg:font-normal lg:leading-6 xl:text-base xl:font-normal xl:leading-6 text-[#818181]">
               Receive personalized nutrition tips, hydration reminders, and
               healthy lifestyle suggestions based on your goals, eating habits,
               and progress.
@@ -58,24 +58,24 @@ const AiPoweredFeature = () => {
           </div>
 
           {/* RIGHT TOP */}
-          <div className="absolute xl:right-20 xl:top-20 hidden w-[320px] text-left lg:block">
-            <h3 className="text-2xl xl:text-lg xl:font-semibold font-medium text-[#1E1E1E]">
+          <div className="absolute lg:right-6 lg:top-6 xl:right-8 xl:top-24 hidden w-[320px] text-left lg:block">
+            <h3 className="text-xl lg:text-lg lg:font-semibold xl:text-xl xl:font-semibold font-semibold text-[#1E1E1E]">
               AI Meal Generation
             </h3>
 
-            <p className="mt-1 text-lg xl:text-base xl:font-normal xl:leading-6 text-[#818181]">
+            <p className=" text-sm lg:text-sm lg:font-normal lg:leading-6 xl:text-base xl:font-normal xl:leading-6 text-[#818181]">
               Generate personalized daily meal plans with balanced breakfast,
               lunch, dinner, and snacks tailored to your nutrition goals.
             </p>
           </div>
 
           {/* RIGHT BOTTOM */}
-          <div className="absolute xl:bottom-45 xl:right-26 hidden w-[320px] text-left lg:block">
-            <h3 className="text-2xl xl:text-lg xl:font-semibold font-medium text-[#1E1E1E]">
+          <div className="absolute xl:bottom-50 xl:right-17 lg:bottom-20 lg:right-10 hidden w-[320px] text-left lg:block">
+            <h3 className="text-xl lg:text-lg lg:font-semibold xl:text-lg xl:font-semibold font-semibold text-[#1E1E1E]">
               AI Recipe Recommendations
             </h3>
 
-            <p className="mt-1 text-lg xl:text-base xl:font-normal xl:leading-6 text-[#818181]">
+            <p className=" text-sm lg:text-sm lg:font-normal lg:leading-6 xl:text-base xl:font-normal xl:leading-6 text-[#818181]">
               Discover recipes tailored to your available ingredients, dietary
               preferences, favourite cuisines and nutritional requirements.
             </p>
