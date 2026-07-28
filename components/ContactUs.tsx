@@ -29,10 +29,10 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="bg-white px-4 py-12 sm:px-6 sm:py-16">
+    <section className="bg-white px-4 py-6 sm:px-6 sm:py-12">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
             Contact Us
           </h2>
           <p className="mt-3 max-w-md text-sm text-gray-500 sm:text-base">

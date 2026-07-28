@@ -1,7 +1,278 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 
-const TermConditions = () => {
-  return <div>TermConditions</div>;
-};
+const sections = [
+  {
+    id: "acceptance",
+    title: "Acceptance of Terms",
+    content:
+      "By accessing or using the Expense Tracker application, you acknowledge that you have read, understood, and agreed to these Terms & Conditions. If you do not agree with any part of these terms, please discontinue using the service.",
+  },
+  {
+    id: "accounts",
+    title: "User Accounts",
+    content:
+      "To access certain features, you may be required to create an account. You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account.",
+  },
+  {
+    id: "acceptable",
+    title: "Acceptable Use",
+    list: [
+      "You agree to use the application only for lawful purposes. You must not:",
+      "Violate applicable laws or regulations.",
+      "Attempt unauthorized access to our systems.",
+      "Distribute harmful software or malicious code.",
+      "Interfere with the normal operation of the platform.",
+      "Misuse or abuse any features or services.",
+    ],
+  },
+  {
+    id: "responsibilities",
+    title: "User Responsibilities",
+    content:
+      "You are responsible for ensuring that the information you provide is accurate and up to date. You agree to use the application responsibly and protect your account credentials from unauthorized access.",
+  },
+  {
+    id: "property",
+    title: "Intellectual Property",
+    content:
+      "All content, software, branding, logos, graphics, and features available within the Expense Tracker application are the property of Elexoft or its licensors and are protected by applicable intellectual property laws.",
+  },
+  {
+    id: "payments",
+    title: "Payments & Subscriptions",
+    content:
+      "If you subscribe to a paid plan, you agree to pay all applicable fees. Subscription charges, renewals, cancellations, and refunds will be handled according to the selected subscription plan.",
+  },
+  {
+    id: "liability",
+    title: "Limitation of Liability",
+    content:
+      "While we strive to provide a reliable and secure service, Elexoft shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the application.",
+  },
+  {
+    id: "termination",
+    title: "Termination",
+    content:
+      "We reserve the right to suspend or terminate your account if you violate these Terms & Conditions or misuse the application.",
+  },
+  {
+    id: "changes",
+    title: "Changes to These Terms",
+    content:
+      "We may update these Terms & Conditions from time to time. Any changes will become effective upon publication on this page. Continued use of the application constitutes acceptance of the updated terms.",
+  },
+  {
+    id: "contact",
+    title: "Contact Information",
+    content: (
+      <div className="space-y-2">
+        <p className="text-gray-500 text-normal font-normal font-lato">
+          Questions about these Terms?
+        </p>
 
-export default TermConditions;
+        <p className="text-gray-500 leading-8 max-w-3xl text-normal font-normal font-lato">
+          Have questions about our Terms & Conditions? Our team is here to help.
+          Reach out to us, and we'll respond as soon as possible.
+        </p>
+
+        <p className="text-gray-500">
+          Email:{" "}
+          <a
+            href="mailto:info@elexoft.com"
+            className="text-orange-500 hover:text-orange-600 underline underline-offset-2 transition"
+          >
+            info@elexoft.com
+          </a>
+        </p>
+      </div>
+    ),
+  },
+];
+
+export default function TermConditions() {
+  const [active, setActive] = useState("acceptance");
+
+  // Click ke doran observer ko mute karne ke liye
+  const isClickScrolling = useRef(false);
+  const clickTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Section active-link tracking - improved visibility detection
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Click ke baad smooth-scroll chal rahi ho to observer ki update ignore kro
+        if (isClickScrolling.current) return;
+
+        const intersectingEntries = entries.filter(
+          (entry) => entry.isIntersecting,
+        );
+
+        if (intersectingEntries.length === 0) {
+          let closestEntry = null as IntersectionObserverEntry | null;
+          let closestDistance = Infinity;
+
+          entries.forEach((entry) => {
+            const rect = entry.target.getBoundingClientRect();
+            if (rect.top > window.innerHeight) {
+              const distance = rect.top - window.innerHeight;
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                closestEntry = entry;
+              }
+            }
+          });
+
+          if (closestEntry) {
+            setActive(closestEntry.target.id);
+          }
+          return;
+        }
+
+        let bestEntry = null as IntersectionObserverEntry | null;
+        let bestScore = -1;
+
+        intersectingEntries.forEach((entry) => {
+          const rect = entry.target.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+          const viewportWidth = window.innerWidth;
+
+          const visibleTop = Math.max(0, rect.top);
+          const visibleBottom = Math.min(viewportHeight, rect.bottom);
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+          const visibleLeft = Math.max(0, rect.left);
+          const visibleRight = Math.min(viewportWidth, rect.right);
+          const visibleWidth = Math.max(0, visibleRight - visibleLeft);
+
+          const visibleArea = visibleHeight * visibleWidth;
+          const totalArea = rect.height * rect.width;
+          const visibleRatio = totalArea > 0 ? visibleArea / totalArea : 0;
+
+          const centerOffset = Math.abs(
+            rect.top + rect.height / 2 - viewportHeight / 2,
+          );
+          const normalizedOffset = centerOffset / viewportHeight;
+
+          const score = visibleRatio * 0.7 + (1 - normalizedOffset) * 0.3;
+
+          if (score > bestScore) {
+            bestScore = score;
+            bestEntry = entry;
+          }
+        });
+
+        if (bestEntry) {
+          setActive(bestEntry.target.id);
+        }
+      },
+      {
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+        rootMargin: "0px",
+      },
+    );
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      observer.disconnect();
+      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    };
+  }, []);
+
+  const gotoSection = (id: string) => {
+    isClickScrolling.current = true;
+    setActive(id);
+
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    clickTimeoutRef.current = setTimeout(() => {
+      isClickScrolling.current = false;
+    }, 900);
+  };
+
+  return (
+    <section className="bg-white text-[#1E1E1E] min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-5 py-1 md:py-1">
+        {/* Hero: heading + description + date */}
+        <div>
+          <h1 className="text-3xl sm:text-4xl font-bold mt-10 md:mt-10 lg:mt-10 xl:mt-10 md:text-[54px] font-manrope">
+            Terms & Conditions
+          </h1>
+
+          <p className="mt-4 sm:mt-6 text-gray-500 text-sm sm:text-base max-w-5xl leading-7 sm:leading-8 font-lato">
+            Please read these Terms & Conditions carefully before using the
+            Expense Tracker application. By accessing or using our services, you
+            agree to be bound by these terms.
+          </p>
+
+          <p className="mt-4 sm:mt-5 text-sm sm:text-base text-orange-500">
+            Effective as of: June 2, 2026
+          </p>
+        </div>
+
+        {/* Grid layout - sidebar hidden on mobile/tablet, visible on desktop */}
+        <div className="relative grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6 sm:gap-10 mt-8 sm:mt-12">
+          {/* Sidebar - normal flow, no sticky */}
+          <aside className="hidden lg:block space-y-2">
+            {sections.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => gotoSection(item.id)}
+                className={`w-full text-left px-4 py-3 rounded-lg transition
+                ${
+                  active === item.id
+                    ? "bg-[#FFF1EC] text-orange-600"
+                    : "text-gray-500 hover:bg-gray-50"
+                }`}
+              >
+                {item.title}
+              </button>
+            ))}
+          </aside>
+
+          {/* Content - Full width on mobile/tablet */}
+          <div className="min-w-0 lg:col-span-1">
+            {sections.map((section) => (
+              <section
+                key={section.id}
+                id={section.id}
+                className={`scroll-mt-24 sm:scroll-mt-28 pb-6 sm:pb-10 ${
+                  section.id !== "contact"
+                    ? "border-b border-gray-200 mb-6 sm:mb-10"
+                    : ""
+                }`}
+              >
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
+                  {section.title}
+                </h2>
+
+                {section.content && typeof section.content === "string" && (
+                  <p className="text-gray-500 text-sm sm:text-lg leading-7 sm:leading-8">
+                    {section.content}
+                  </p>
+                )}
+
+                {React.isValidElement(section.content) && section.content}
+
+                {section.list && (
+                  <ul className="list-disc ml-4 sm:ml-6 mt-3 sm:mt-4 space-y-1.5 sm:space-y-2 text-gray-500 text-sm sm:text-base">
+                    {section.list.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

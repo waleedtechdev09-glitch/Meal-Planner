@@ -79,7 +79,7 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-[#FFF8F5] backdrop-blur relative">
       {/* Left Gradient matching hero */}
-      {!scrolled && pathname !== "/contact-us" && (
+      {!scrolled && !["/contact-us", "/privacy-policy", "/term-conditions"].includes(pathname) && (
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)] hidden md:block" />
       )}
 
