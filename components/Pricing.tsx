@@ -31,7 +31,10 @@ const Pricing = () => {
   const [yearly, setYearly] = useState(true);
 
   return (
-    <section id="pricing" className="relative overflow-hidden bg-[#1E1E1E] py-20">
+    <section
+      id="pricing"
+      className="relative overflow-hidden bg-[#1E1E1E] py-20"
+    >
       {/* Background Image */}
       <div
         className="absolute hidden inset-0 opacity-20 md:block"
@@ -96,14 +99,14 @@ const Pricing = () => {
               key={plan.name}
               className="rounded-[28px] border border-[#333] px-8 py-10 text-center backdrop-blur-xs transition duration-300 hover:border-[#FF6B35] "
             >
-              <h3 className="text-2xl font-semibold text-white">
+              <h3 className="text-xl font-medium text-white">
                 {plan.name}{" "}
                 <span className="text-sm font-medium text-[#FF6B35]">
                   ({plan.save})
                 </span>
               </h3>
 
-              <div className="mt-5">
+              <div className="mt-2">
                 <span className="text-5xl font-bold text-white">
                   {plan.price}
                 </span>
@@ -111,7 +114,7 @@ const Pricing = () => {
                 <span className="text-[#B8B8B8]">/yearly</span>
               </div>
 
-              <p className="mt-8 text-sm leading-7 text-[#9D9D9D]">
+              <p className="mt-8 text-sm leading-5 text-[#959292]">
                 {plan.description}
               </p>
             </div>
