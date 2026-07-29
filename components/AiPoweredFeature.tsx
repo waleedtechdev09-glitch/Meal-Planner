@@ -21,8 +21,8 @@ const AiPoweredFeature = () => {
 
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Heading */}
-        <div className="mb-6 text-center md:mb-16">
-          <h2 className="text-4xl font-bold lg:text-4xl xl:text-4xl">
+        <div className="mb-2 text-center md:mb-16">
+          <h2 className="text-3xl font-bold lg:text-4xl xl:text-4xl">
             <span className="text-[#FF6B35]">AI-Powered</span>{" "}
             <span className="text-[#222]">Features</span>
           </h2>

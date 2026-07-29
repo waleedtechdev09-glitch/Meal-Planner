@@ -53,7 +53,7 @@ const Personalized = () => {
         // variants={fadeIn}
       />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-12 px-6 md:flex-row md:gap-16 lg:flex-row lg:gap-20 xl:gap-2 lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 md:flex-row md:gap-16 lg:flex-row lg:gap-20 xl:gap-2 lg:px-8">
         {/* LEFT */}
         <div className="relative flex w-full justify-center md:w-5/12 lg:w-1/2">
           {/* Circle (bottom-most) */}
