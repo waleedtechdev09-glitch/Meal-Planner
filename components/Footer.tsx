@@ -42,7 +42,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="relative bg-white border-t-0 md:border-t border-gray-100 px-4 py-10 sm:py-12 overflow-hidden">
+    <footer id="footer" className="relative bg-white border-t-0 md:border-t border-gray-100 px-4 py-10 sm:py-12 overflow-hidden">
       {/* Gradient circle - positioned to extend above the footer */}
       <div className="pointer-events-none absolute -top-48  left-1/7 -translate-x-1/2 h-[500px] w-[500px] max-w-[90vw] rounded-full bg-[radial-gradient(circle,#FFD3C5_0%,transparent_50%)] opacity-80 sm:-top-64 sm:h-[600px] sm:w-[600px] lg:-top-80 lg:h-[700px] lg:w-[700px]" />
 

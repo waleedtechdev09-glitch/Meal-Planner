@@ -48,6 +48,7 @@ const Navbar = () => {
           if (entry.isIntersecting) {
             const label = labelMap.get(entry.target.id);
             if (label) setActive(label);
+            else setActive("");
           }
         });
       },
@@ -56,6 +57,11 @@ const Navbar = () => {
 
     sections.forEach((section) => {
       const el = document.getElementById(section.id);
+      if (el) observer.observe(el);
+    });
+
+    ["healthy-journey", "footer"].forEach((id) => {
+      const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const HealthyJourney = () => {
   return (
-    <section className="relative bg-white px-4 py-10 sm:px-6 sm:py-14 overflow-x-hidden">
+    <section id="healthy-journey" className="relative bg-white px-4 py-10 sm:px-6 sm:py-14 overflow-x-hidden">
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-2xl bg-[#1a1a1a]">
         <div
           className="absolute inset-0 bg-cover bg-center hidden sm:block"
