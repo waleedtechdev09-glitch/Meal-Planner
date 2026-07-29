@@ -143,21 +143,41 @@ const Personalized = () => {
           </div>
 
           {/* Mobile Image - shows only on small screens, before store buttons */}
-          <motion.div
-            className="mt-6 flex justify-center md:hidden"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
-            <Image
-              src="/assets/personalized.png"
-              alt="Meal Planner"
-              width={520}
-              height={720}
-              className="w-[200px] sm:w-[240px] object-contain"
-            />
-          </motion.div>
+          <div className="relative mt-6 flex justify-center md:hidden">
+            {/* Circle (mobile) */}
+            <motion.div
+               className="pointer-events-none absolute left-[40%] top-1/2 z-0 -translate-x-1/2 -translate-y-1/2"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Image
+                src="/assets/circle.png"
+                alt=""
+                width={550}
+                height={550}
+                 className="w-[320px] sm:w-[380px]"
+              />
+            </motion.div>
+
+            {/* Phone Image (mobile) */}
+            <motion.div
+              className="relative z-10"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <Image
+                src="/assets/personalized.png"
+                alt="Meal Planner"
+                width={520}
+                height={720}
+                className="w-[200px] sm:w-[240px] object-contain"
+              />
+            </motion.div>
+          </div>
 
           <div className="relative z-10 flex flex-row flex-nowrap items-center justify-center gap-2 w-full md:mt-4 mt-12 sm:w-auto sm:justify-start sm:gap-3">
             {/* Google Play */}
