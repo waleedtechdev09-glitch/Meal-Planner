@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 
 const sections = [
   {
@@ -302,108 +302,12 @@ const sections = [
 export default function PrivacyPolicy() {
   const [active, setActive] = useState("information");
 
-  // Click ke doran observer ko mute karne ke liye
-  const isClickScrolling = useRef(false);
-  const clickTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Section active-link tracking - improved visibility detection
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Click ke baad smooth-scroll chal rahi ho to observer ki update ignore kro
-        if (isClickScrolling.current) return;
-
-        const intersectingEntries = entries.filter(
-          (entry) => entry.isIntersecting,
-        );
-
-        if (intersectingEntries.length === 0) {
-          let closestEntry = null as IntersectionObserverEntry | null;
-          let closestDistance = Infinity;
-
-          entries.forEach((entry) => {
-            const rect = entry.target.getBoundingClientRect();
-            if (rect.top > window.innerHeight) {
-              const distance = rect.top - window.innerHeight;
-              if (distance < closestDistance) {
-                closestDistance = distance;
-                closestEntry = entry;
-              }
-            }
-          });
-
-          if (closestEntry) {
-            setActive(closestEntry.target.id);
-          }
-          return;
-        }
-
-        let bestEntry = null as IntersectionObserverEntry | null;
-        let bestScore = -1;
-
-        intersectingEntries.forEach((entry) => {
-          const rect = entry.target.getBoundingClientRect();
-          const viewportHeight = window.innerHeight;
-          const viewportWidth = window.innerWidth;
-
-          const visibleTop = Math.max(0, rect.top);
-          const visibleBottom = Math.min(viewportHeight, rect.bottom);
-          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-          const visibleLeft = Math.max(0, rect.left);
-          const visibleRight = Math.min(viewportWidth, rect.right);
-          const visibleWidth = Math.max(0, visibleRight - visibleLeft);
-
-          const visibleArea = visibleHeight * visibleWidth;
-          const totalArea = rect.height * rect.width;
-          const visibleRatio = totalArea > 0 ? visibleArea / totalArea : 0;
-
-          const centerOffset = Math.abs(
-            rect.top + rect.height / 2 - viewportHeight / 2,
-          );
-          const normalizedOffset = centerOffset / viewportHeight;
-
-          const score = visibleRatio * 0.7 + (1 - normalizedOffset) * 0.3;
-
-          if (score > bestScore) {
-            bestScore = score;
-            bestEntry = entry;
-          }
-        });
-
-        if (bestEntry) {
-          setActive(bestEntry.target.id);
-        }
-      },
-      {
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
-        rootMargin: "0px",
-      },
-    );
-
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id);
-      if (element) observer.observe(element);
-    });
-
-    return () => {
-      observer.disconnect();
-      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
-    };
-  }, []);
-
-  const gotoSection = (id: string) => {
-    isClickScrolling.current = true;
+  const handleClick = (id: string) => {
     setActive(id);
-
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
-
-    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
-    clickTimeoutRef.current = setTimeout(() => {
-      isClickScrolling.current = false;
-    }, 900);
   };
 
   return (
@@ -435,7 +339,7 @@ export default function PrivacyPolicy() {
             {sections.map((item) => (
               <button
                 key={item.id}
-                onClick={() => gotoSection(item.id)}
+                onClick={() => handleClick(item.id)}
                 className={`w-full text-left px-4 py-3 rounded-lg transition
                 ${
                   active === item.id
@@ -455,10 +359,10 @@ export default function PrivacyPolicy() {
                 key={section.id}
                 id={section.id}
                  className={`scroll-mt-24 sm:scroll-mt-28 pb-6 sm:pb-10 ${
-                   section.id !== "contact"
-                     ? "border-b-0 md:border-b border-gray-200 mb-6 sm:mb-10"
-                     : ""
-                 }`}
+                  section.id !== "contact"
+                    ? "border-b-0 md:border-b border-gray-200 mb-6 sm:mb-10"
+                    : ""
+                }`}
               >
                 <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
                   {section.title}

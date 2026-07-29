@@ -23,7 +23,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (pathname === "/contact-us") {
+    if (pathname === "/contact-us" || pathname === "/privacy-policy" || pathname === "/term-conditions") {
       setActive("");
     }
   }, [pathname]);
