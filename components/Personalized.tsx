@@ -38,7 +38,7 @@ const fadeInLeft = {
 
 const Personalized = () => {
   return (
-    <section className="relative bg-[#FFF8F5] md:py-16 lg:py-16 xl:py-16">
+    <section className="relative  bg-[#FFF8F5] md:py-16 lg:py-16 xl:py-16">
       {/* Background Lines - above circle, below phone */}
       <motion.div
         className="pointer-events-none xl:left-[-1280px] lg:left-[-800px] md:left-[-575px] absolute left-0 right-0 -top-32 z-10 opacity-90 bg-no-repeat bg-top bg-center hidden md:block"
@@ -105,7 +105,7 @@ const Personalized = () => {
 
         {/* RIGHT */}
         <div className="w-full md:w-7/12 lg:w-[68%]">
-          <h2 className="text-3xl font-bold  leading-tight text-[#1E1E1E] md:text-4xl lg:text-4xl xl:text-4xl">
+          <h2 className="text-left text-3xl font-bold leading-tight text-[#1E1E1E] md:text-4xl lg:text-4xl xl:text-4xl">
             <span className="text-[#FF6B35]">Personalized Meals,</span> Crafted
             Just for You
           </h2>

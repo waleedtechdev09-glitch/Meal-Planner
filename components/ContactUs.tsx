@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface FormData {
   fullName: string;
@@ -126,7 +127,13 @@ const ContactUs = () => {
           </form>
         </div>
 
-        <div className="relative hidden justify-center lg:flex">
+        <motion.div
+          className="relative hidden justify-center lg:flex"
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <Image
             src="/assets/contact-image.png"
             alt="Contact support illustration"
@@ -134,7 +141,8 @@ const ContactUs = () => {
             height={500}
             className="h-auto w-full max-w-md object-contain"
           />
-        </div>
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white via-white/90 to-transparent" />
+        </motion.div>
       </div>
     </section>
   );
