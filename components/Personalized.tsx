@@ -44,7 +44,7 @@ const Personalized = () => {
         className="pointer-events-none xl:left-[-1280px] lg:left-[-800px] md:left-[-575px] absolute left-0 right-0 -top-32 z-10 opacity-90 bg-no-repeat bg-top bg-center hidden md:block"
         style={{
           backgroundImage: "url('/assets/vertical-lines.png')",
-          minHeight: "calc(100% + 8rem)",
+          minHeight: "calc(100% + 40rem)",
         }}
         initial="hidden"
         whileInView="visible"
