@@ -119,7 +119,7 @@ const ContactUs = () => {
 
             <button
               type="submit"
-              className="mt-2 w-fit rounded-full bg-gray-900 px-12 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-800"
+              className="mt-2 mb-12 w-fit rounded-full bg-gray-900 px-12 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-800"
             >
               Send
             </button>
