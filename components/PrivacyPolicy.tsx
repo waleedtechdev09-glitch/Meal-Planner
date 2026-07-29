@@ -312,7 +312,7 @@ export default function PrivacyPolicy() {
 
   return (
     <section className="relative bg-white text-[#1E1E1E] min-h-screen overflow-x-hidden">
-      <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,#FFE8DD_0%,transparent_70%)] opacity-80 sm:h-96 sm:w-96 pointer-events-none" />
+      <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,#FFE8DD_0%,transparent_70%)] opacity-80 sm:h-96 sm:w-96 pointer-events-none hidden md:block" />
       <div className="max-w-7xl mx-auto px-4 sm:px-5 py-1  md:py-1 ">
         {/* Hero: heading + description + date */}
         <div>

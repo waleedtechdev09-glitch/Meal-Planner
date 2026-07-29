@@ -23,10 +23,10 @@ export default function Hero() {
   return (
     <section id="features" className="relative overflow-hidden bg-[#FFF8F5]">
       {/* Left Gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFE8DD_0%,transparent_45%)] hidden md:block" />
 
       {/* Right Gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#FFE8DD_0%,transparent_35%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#FFE8DD_0%,transparent_35%)] hidden md:block" />
 
       {/* Background */}
       <div
@@ -89,7 +89,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Download Buttons */}
-          <div className="relative z-10 mt-2 md:mt-8 flex flex-row flex-nowrap items-center justify-center gap-2 w-full sm:gap-3 md:gap-3">
+          <div className="relative z-10 mt-2 md:mt-8 flex flex-row flex-nowrap items-center justify-center md:px-0 px-4 gap-2 w-full sm:gap-3 md:gap-3">
             {/* Google Play */}
             <Link
               href="#"

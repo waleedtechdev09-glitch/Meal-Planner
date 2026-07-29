@@ -35,7 +35,7 @@ const stats = [
 const Nutrition = () => {
   return (
     <section className="bg-[#FFF8F5]  px-5 lg:px-8 relative overflow-hidden xl:-mt-10 lg:-mt-15 md:-mt-15 -mt-6">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#FFE8DD_0%,transparent_35%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#FFE8DD_0%,transparent_35%)] hidden md:block" />
 
       <div className="mx-auto max-w-7xl overflow-hidden relative">
         {/* Top */}
@@ -70,7 +70,7 @@ const Nutrition = () => {
               key={item.id}
               className={`p-6 md:p-8 ${
                 index !== stats.length - 1
-                  ? "border-r border-[#F2E4DD] sm:border-r"
+                  ? "border-[#F2E4DD] sm:border-r"
                   : ""
               }`}
             >

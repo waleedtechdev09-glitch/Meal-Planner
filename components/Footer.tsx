@@ -47,7 +47,7 @@ const Footer = () => {
       className="relative bg-white border-t border-gray-200 px-4 py-10 sm:py-12 "
     >
       {/* Gradient circle - extends above the footer into the previous section */}
-      <div className="pointer-events-none absolute -top-48 left-1/30 -translate-x-1/2 h-[500px] w-[500px] max-w-[90vw] rounded-full bg-[radial-gradient(circle,#FFD3C5_0%,transparent_50%)] opacity-50 z-50 sm:-top-64 sm:h-[600px] sm:w-[600px] lg:-top-80 lg:h-[700px] lg:w-[700px]" />
+      <div className="pointer-events-none absolute -top-48 left-1/30 -translate-x-1/2 h-[500px] w-[500px] max-w-[90vw] rounded-full bg-[radial-gradient(circle,#FFD3C5_0%,transparent_50%)] opacity-50 z-50 hidden md:block sm:-top-64 sm:h-[600px] sm:w-[600px] lg:-top-80 lg:h-[700px] lg:w-[700px]" />
 
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 relative z-10 bg-white">
         <div className="flex items-center gap-2">
