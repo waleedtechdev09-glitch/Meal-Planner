@@ -36,7 +36,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-10 pt-10 md:pt-14 pb-10 md:pb-0 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-2 pt-10 md:px-10 md:pt-14 pb-10 md:pb-0 lg:px-8">
         {/* Heading */}
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold leading-tight text-[#1E1E1E] md:text-5xl lg:text-6xl">
@@ -51,20 +51,17 @@ export default function Hero() {
           </p>
 
           {/* Stats */}
-          <div className="mt-8 grid grid-cols-2 gap-y-6 md:grid-cols-3">
+          <div className="mt-8 grid grid-cols-3 gap-y-6">
             {stats.map((item, index) => (
-              <div
-                key={item.title}
-                className={`flex justify-center ${
-                  index === 2 ? "col-span-2 md:col-span-1" : ""
-                }`}
-              >
-                <div className="px-3 text-center md:px-10">
-                  <h3 className="text-xl font-bold lg:font-medium text-[#FF6B35]">
+              <div key={item.title} className="flex justify-center">
+                <div className="px-1 text-center sm:px-3 md:px-10">
+                  <h3 className="text-base font-bold lg:font-medium text-[#FF6B35] sm:text-xl">
                     {item.number}
                   </h3>
 
-                  <p className="mt-1 text-sm text-[#6E6E6E]">{item.title}</p>
+                  <p className="mt-1 text-xs text-[#6E6E6E] sm:text-sm">
+                    {item.title}
+                  </p>
                 </div>
 
                 {index !== stats.length - 1 && (
@@ -74,14 +71,31 @@ export default function Hero() {
             ))}
           </div>
 
+          {/* Mobile Hero Image - shows only on small screens, before download buttons */}
+          <motion.div
+            className="mt-2 flex justify-center md:hidden -mx-8 px-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <Image
+              src="/assets/hero.png"
+              alt="Meal Planner App"
+              width={1020}
+              height={960}
+              priority
+              className="w-full max-w-[1200px] object-contain"
+            />
+          </motion.div>
+
           {/* Download Buttons */}
-          <div className="relative z-10 mt-8 flex flex-col gap-3 w-full md:flex-row md:flex-nowrap md:items-center md:justify-center md:gap-3">
+          <div className="relative z-10 mt-2 md:mt-8 flex flex-row flex-nowrap items-center justify-center gap-2 w-full sm:gap-3 md:gap-3">
             {/* Google Play */}
             <Link
               href="#"
-              className="relative z-10 flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
+              className="relative z-10 flex items-center justify-center gap-2 w-1/2 h-auto min-h-[42px] rounded-lg border-2 border-gray-400 bg-black px-2 py-2 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0 sm:gap-3"
             >
-              <div className="relative h-6 w-6 shrink-0 pointer-events-none">
+              <div className="relative h-5 w-5 shrink-0 pointer-events-none sm:h-6 sm:w-6">
                 <Image
                   src="/assets/meal-playstore.png"
                   alt="Google Play"
@@ -91,11 +105,10 @@ export default function Hero() {
               </div>
 
               <div className="flex flex-col items-start leading-none pointer-events-none">
-                <span className="text-[10px] uppercase tracking-wider font-medium text-white sm:text-[8px]">
+                <span className="text-[9px] uppercase tracking-wider font-medium text-white sm:text-[8px]">
                   Get it on
                 </span>
-
-                <span className="mt-[2px] text-base font-medium text-white sm:text-[15px]">
+                <span className="mt-[2px] text-sm font-medium text-white sm:text-[15px]">
                   Google Play
                 </span>
               </div>
@@ -104,9 +117,9 @@ export default function Hero() {
             {/* App Store */}
             <Link
               href="#"
-              className="relative z-10 flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
+              className="relative z-10 flex items-center justify-center gap-2 w-1/2 h-auto min-h-[42px] rounded-lg border-2 border-gray-400 bg-black px-2 py-2 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0 sm:gap-3"
             >
-              <div className="relative h-6 w-6 shrink-0 pointer-events-none">
+              <div className="relative h-5 w-5 shrink-0 pointer-events-none sm:h-6 sm:w-6">
                 <Image
                   src="/assets/meal-applestore.png"
                   alt="App Store"
@@ -116,11 +129,10 @@ export default function Hero() {
               </div>
 
               <div className="flex flex-col items-start leading-none pointer-events-none">
-                <span className="text-[10px] tracking-wide font-medium text-white sm:text-[8px]">
+                <span className="text-[9px] tracking-wide font-medium text-white sm:text-[8px]">
                   Download on the
                 </span>
-
-                <span className="mt-[2px] text-base font-medium text-white sm:text-[15px]">
+                <span className="mt-[2px] text-sm font-medium text-white sm:text-[15px]">
                   App Store
                 </span>
               </div>
@@ -128,7 +140,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Hero Image */}
+        {/* Hero Image (Desktop) */}
         <motion.div
           className="lg:-mt-17 xl:-mt-17 md:-mt-10 hidden md:flex justify-center "
           initial={{ opacity: 0, y: 60 }}

@@ -142,13 +142,30 @@ const Personalized = () => {
             ))}
           </div>
 
-          <div className="relative z-10 flex flex-col items-center gap-3 sm:flex-row mt-4">
+          {/* Mobile Image - shows only on small screens, before store buttons */}
+          <motion.div
+            className="mt-6 flex justify-center md:hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <Image
+              src="/assets/personalized.png"
+              alt="Meal Planner"
+              width={520}
+              height={720}
+              className="w-[200px] sm:w-[240px] object-contain"
+            />
+          </motion.div>
+
+          <div className="relative z-10 flex flex-row flex-nowrap items-center justify-center gap-2 w-full md:mt-4 mt-12 sm:w-auto sm:justify-start sm:gap-3">
             {/* Google Play */}
             <Link
               href="#"
-              className="relative z-10 flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
+              className="relative z-10 flex items-center justify-center gap-2 w-1/2 h-auto min-h-[42px] rounded-lg border-2 border-gray-400 bg-black px-2 py-2 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0 sm:gap-3"
             >
-              <div className="relative h-6 w-6 shrink-0 pointer-events-none">
+              <div className="relative h-5 w-5 shrink-0 pointer-events-none sm:h-6 sm:w-6">
                 <Image
                   src="/assets/meal-playstore.png"
                   alt="Google Play"
@@ -158,10 +175,10 @@ const Personalized = () => {
               </div>
 
               <div className="flex flex-col items-start leading-none pointer-events-none">
-                <span className="text-[10px] uppercase tracking-wider font-medium text-white sm:text-[8px]">
+                <span className="text-[9px] uppercase tracking-wider font-medium text-white sm:text-[8px]">
                   Get it on
                 </span>
-                <span className="mt-[2px] text-base font-medium text-white sm:text-[15px]">
+                <span className="mt-[2px] text-sm font-medium text-white sm:text-[15px]">
                   Google Play
                 </span>
               </div>
@@ -170,9 +187,9 @@ const Personalized = () => {
             {/* App Store */}
             <Link
               href="#"
-              className="relative z-10 flex items-center justify-center gap-3 w-full h-auto min-h-[50px] rounded-lg border-2 border-gray-400 bg-black px-4 py-3 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0"
+              className="relative z-10 flex items-center justify-center gap-2 w-1/2 h-auto min-h-[42px] rounded-lg border-2 border-gray-400 bg-black px-2 py-2 transition-transform duration-200 hover:bg-neutral-900 hover:scale-[1.10] transform sm:w-[160px] sm:h-[50px] sm:px-3 sm:py-0 sm:gap-3"
             >
-              <div className="relative h-6 w-6 shrink-0 pointer-events-none">
+              <div className="relative h-5 w-5 shrink-0 pointer-events-none sm:h-6 sm:w-6">
                 <Image
                   src="/assets/meal-applestore.png"
                   alt="App Store"
@@ -182,10 +199,10 @@ const Personalized = () => {
               </div>
 
               <div className="flex flex-col items-start leading-none pointer-events-none">
-                <span className="text-[10px] tracking-wide font-medium text-white sm:text-[8px]">
+                <span className="text-[9px] tracking-wide font-medium text-white sm:text-[8px]">
                   Download on the
                 </span>
-                <span className="mt-[2px] text-base font-medium text-white sm:text-[15px]">
+                <span className="mt-[2px] text-sm font-medium text-white sm:text-[15px]">
                   App Store
                 </span>
               </div>

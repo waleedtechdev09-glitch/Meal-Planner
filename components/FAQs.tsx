@@ -43,8 +43,8 @@ const FAQs = () => {
   };
 
   return (
-    <section id="faqs" className="bg-white px-4 py-4 md:py-3 lg:py-4 xl:py-2">
-      <div className="mx-auto max-w-3xl text-center">
+    <section id="faqs" className="bg-white px-4 py-0 md:py-0 lg:py-4 xl:py-2">
+      <div className="mx-auto max-w-3xl text-left md:text-center">
         <h2 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
           <span className="text-gray-900">Frequently Asked </span>
           <span className="text-orange-500">Questions</span>

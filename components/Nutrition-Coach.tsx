@@ -40,8 +40,8 @@ const Nutrition = () => {
       <div className="mx-auto max-w-7xl overflow-hidden relative">
         {/* Top */}
         <div className="flex flex-col gap-8 p-6 md:p-6 xl:flex-row xl:items-center xl:justify-between">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl mt-4 font-bold leading-tight text-[#1E1E1E] md:text-3xl lg:text-3xl xl:text-3xl">
+          <div className="max-w-4xl">
+            <h2 className=" text-3xl mt-4 font-bold leading-tight text-[#1E1E1E] md:text-3xl lg:text-3xl xl:text-3xl">
               Your Personal{" "}
               <span className="text-[#FF6B35]">AI Nutrition Coach,</span>{" "}
               Available 24/7
@@ -68,11 +68,11 @@ const Nutrition = () => {
           {stats.map((item, index) => (
             <div
               key={item.id}
-               className={`p-6 md:p-8 ${
-                 index !== stats.length - 1
-                   ? "border-r border-[#F2E4DD] sm:border-r"
-                   : ""
-               }`}
+              className={`p-6 md:p-8 ${
+                index !== stats.length - 1
+                  ? "border-r border-[#F2E4DD] sm:border-r"
+                  : ""
+              }`}
             >
               <p className="text-[11px] font-medium uppercase tracking-wider text-[#FF6B35]">
                 {item.title}

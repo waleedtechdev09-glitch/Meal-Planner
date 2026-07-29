@@ -21,7 +21,7 @@ const AiPoweredFeature = () => {
 
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Heading */}
-        <div className="mb-2 text-center md:mb-16">
+        <div className=" text-left md:text-center md:mb-16">
           <h2 className="text-3xl font-bold lg:text-4xl xl:text-4xl">
             <span className="text-[#FF6B35]">AI-Powered</span>{" "}
             <span className="text-[#222]">Features</span>
@@ -100,7 +100,24 @@ const AiPoweredFeature = () => {
 
         {/* Mobile / Tablet Layout */}
         <div className="mt-6 space-y-6 lg:hidden md:hidden">
-          <div className="text-center">
+          {/* Mobile Image */}
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+             <Image
+               src="/assets/feature.png"
+               alt="Feature"
+               width={800}
+               height={1800}
+               className="w-full max-w-[720px] object-contain sm:max-w-[800px]"
+             />
+          </motion.div>
+
+          <div className="text-left">
             <h3 className="text-xl md:text-xl font-semibold text-[#1E1E1E]">
               AI Smart Meal Search
             </h3>
@@ -111,7 +128,7 @@ const AiPoweredFeature = () => {
             </p>
           </div>
 
-          <div className="text-center">
+          <div className="text-left">
             <h3 className="text-xl md:text-xl font-semibold text-[#1E1E1E]">
               AI Meal Generation
             </h3>
@@ -121,7 +138,7 @@ const AiPoweredFeature = () => {
             </p>
           </div>
 
-          <div className="text-center">
+          <div className="text-left">
             <h3 className="text-xl md:text-xl font-semibold text-[#1E1E1E]">
               AI Healthy Tips
             </h3>
@@ -131,7 +148,7 @@ const AiPoweredFeature = () => {
             </p>
           </div>
 
-          <div className="text-center">
+          <div className="text-left">
             <h3 className="text-xl md:text-xl font-semibold text-[#1E1E1E]">
               AI Recipe Recommendations
             </h3>
