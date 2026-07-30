@@ -32,9 +32,9 @@ const Navbar = () => {
     if (pathname !== "/") return;
 
     const sections = navigation
-      .filter((item) => item.href.startsWith("#"))
+      .filter((item) => item.href.startsWith("/#"))
       .map((item) => ({
-        id: item.href.replace("#", ""),
+        id: item.href.replace("/#", ""),
         label: item.label,
       }));
 
@@ -72,11 +72,12 @@ const Navbar = () => {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
-    if (href.startsWith("#")) {
-      e.preventDefault();
-      const id = href.replace("#", "");
+    const hash = href.startsWith("/#") ? href.replace("/#", "#") : href;
+    if (hash.startsWith("#")) {
+      const id = hash.replace("#", "");
       const el = document.getElementById(id);
       if (el) {
+        e.preventDefault();
         el.scrollIntoView({ behavior: "smooth" });
       }
     }

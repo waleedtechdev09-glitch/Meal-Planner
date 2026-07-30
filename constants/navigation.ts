@@ -8,21 +8,21 @@ export const navigation: NavigationItem[] = [
   {
     id: 1,
     label: "Features",
-    href: "#features",
+    href: "/#features",
   },
   {
     id: 2,
     label: "Pricing",
-    href: "#pricing",
+    href: "/#pricing",
   },
   {
     id: 3,
     label: "Reviews",
-    href: "#reviews",
+    href: "/#reviews",
   },
   {
     id: 4,
     label: "FAQs",
-    href: "#faqs",
+    href: "/#faqs",
   },
 ];

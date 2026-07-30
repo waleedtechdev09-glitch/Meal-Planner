@@ -44,7 +44,7 @@ const sections = [
           This information is securely stored in our cloud database.
         </p>
 
-        <h3 className="text-orange-500 text-xl font-medium font-lato mt-8 mb-2">
+        <h3 className="text-orange-500 text-xl font-medium mt-8 mb-2">
           Voice Input
         </h3>
 
@@ -63,7 +63,7 @@ const sections = [
           </span>
         </p>
 
-        <h3 className="text-orange-500 text-xl font-medium font-lato mt-8 mb-2">
+        <h3 className="text-orange-500 text-xl font-medium mt-8 mb-2">
           Receipt Scanning
         </h3>
 
@@ -107,14 +107,14 @@ const sections = [
     title: "Permissions We Request",
     content: (
       <>
-        <h3 className="text-orange-500 font-medium font-lato text-xl">
+        <h3 className="text-orange-500 font-medium text-xl">
           Camera
         </h3>
         <p className="text-gray-500 mb-4 font-normal font-lato">
           Used to capture receipt images for expense recording.
         </p>
 
-        <h3 className="text-orange-500 font-medium font-lato text-xl">
+        <h3 className="text-orange-500 font-medium text-xl">
           Microphone
         </h3>
         <p className="text-gray-500 mb-4 font-normal font-lato">
@@ -122,21 +122,21 @@ const sections = [
           income information.
         </p>
 
-        <h3 className="text-orange-500 font-medium font-lato text-xl">
+        <h3 className="text-orange-500 font-medium text-xl">
           Speech Recognition
         </h3>
         <p className="text-gray-500 mb-4 font-normal font-lato">
           Used to convert your speech into text for creating financial records.
         </p>
 
-        <h3 className="text-orange-500 font-medium font-lato text-xl">
+        <h3 className="text-orange-500 font-medium text-xl">
           Photo Library
         </h3>
         <p className="text-gray-500 mb-4 font-normal font-lato">
           Used to allow you to select receipt images stored on your device.
         </p>
 
-        <h3 className="text-orange-500 font-medium font-lato text-xl">
+        <h3 className="text-orange-500 font-medium text-xl">
           Internet Access
         </h3>
         <p className="text-gray-500 mb-4 font-normal font-lato">
@@ -144,7 +144,7 @@ const sections = [
           process AI-powered voice and receipt recognition.
         </p>
 
-        <h3 className="text-orange-500 font-medium font-lato text-xl">
+        <h3 className="text-orange-500 font-medium text-xl">
           Biometric Authentication
         </h3>
         <p className="text-gray-500 font-normal font-lato">
@@ -167,7 +167,7 @@ const sections = [
 
         <div className="space-y-6">
           <div className="  ">
-            <h3 className="text-orange-500 text-xl font-lato font-medium mb-1">
+            <h3 className="text-orange-500 text-xl font-medium mb-1">
               Supabase
             </h3>
 
@@ -179,7 +179,7 @@ const sections = [
           </div>
 
           <div className="">
-            <h3 className="text-orange-500 text-xl font-lato font-medium mb-1">
+            <h3 className="text-orange-500 text-xl font-medium mb-1">
               OpenAI
             </h3>
 
@@ -192,7 +192,7 @@ const sections = [
           </div>
 
           <div className="">
-            <h3 className="text-orange-500 text-xl font-lato font-medium mb-1">
+            <h3 className="text-orange-500 text-xl font-medium mb-1">
               Google Sign-In
             </h3>
 
@@ -204,7 +204,7 @@ const sections = [
           </div>
 
           <div className="">
-            <h3 className="text-orange-500 text-xl font-lato font-medium mb-1">
+            <h3 className="text-orange-500 text-xl font-medium mb-1">
               Sign in with Apple
             </h3>
 
@@ -316,7 +316,7 @@ export default function PrivacyPolicy() {
       <div className="max-w-7xl mx-auto px-4 sm:px-5 py-1  md:py-1 ">
         {/* Hero: heading + description + date */}
         <div>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-10 md:mt-10 lg:mt-10 xl:mt-10 md:text-[54px]  font-manrope">
+          <h1 className="text-3xl sm:text-4xl font-bold mt-10 md:mt-10 lg:mt-10 xl:mt-10 md:text-[54px]">
             Privacy Policy
           </h1>
 

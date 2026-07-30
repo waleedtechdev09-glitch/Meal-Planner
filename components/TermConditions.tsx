@@ -107,7 +107,7 @@ export default function TermConditions() {
       <div className="max-w-7xl mx-auto px-4 sm:px-5 py-1 md:py-1">
         {/* Hero: heading + description + date */}
         <div>
-          <h1 className="text-3xl sm:text-4xl font-bold mt-10 md:mt-10 lg:mt-10 xl:mt-10 md:text-[54px] font-manrope">
+          <h1 className="text-3xl sm:text-4xl font-bold mt-10 md:mt-10 lg:mt-10 xl:mt-10 md:text-[54px]">
             Terms & Conditions
           </h1>
 
